@@ -35,3 +35,8 @@ logs/
 # 기타
 *.tmp
 .cache/
+
+# 개인 설정 파일
+.claude/settings.local.json
+
+
