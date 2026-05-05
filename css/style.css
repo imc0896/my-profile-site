@@ -1,0 +1,445 @@
+/* ==================== Custom CSS ==================== */
+
+/* Korean Text Optimization + Global Line Height */
+body {
+  word-break: keep-all;
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.8;
+}
+
+p {
+  line-height: 1.8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+span, a, button {
+  line-height: inherit;
+}
+
+/* ==================== Animations ==================== */
+
+/* Hero Entrance Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#hero .reveal:nth-child(1) {
+  animation: fadeInUp 0.7s ease-out 0.1s both;
+}
+
+#hero .reveal:nth-child(2) {
+  animation: fadeInUp 0.7s ease-out 0.25s both;
+}
+
+#hero .reveal:nth-child(3) {
+  animation: fadeInUp 0.7s ease-out 0.4s both;
+}
+
+/* ==================== Navigation ==================== */
+
+#navbar {
+  backdrop-filter: blur(10px);
+}
+
+#navbar.scrolled {
+  @apply bg-white/95 shadow-md;
+}
+
+#hamburger {
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+#hamburger:active {
+  transform: scale(0.9);
+}
+
+#mobile-menu {
+  background: white;
+  border-top: 2px solid #E5E7EB;
+}
+
+#mobile-menu.open {
+  @apply max-h-64;
+}
+
+/* ==================== Hero Section ==================== */
+
+#hero {
+  background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 100%);
+}
+
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #EF9036;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: #EF9036;
+}
+
+/* ==================== Scroll Behavior ==================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==================== Utility Classes ==================== */
+
+/* Smooth Transitions */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Text Shadows */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== Responsive Adjustments ==================== */
+
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  #hero {
+    padding-top: 0;
+  }
+
+  .text-5xl {
+    font-size: 2.5rem;
+  }
+
+  .text-4xl {
+    font-size: 1.875rem;
+  }
+}
+
+/* ==================== Accessibility ==================== */
+
+/* Focus Styles */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #EF9036;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==================== Print Styles ==================== */
+
+@media print {
+  nav,
+  #toast {
+    display: none !important;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+}
+
+/* ==================== Hover Effects ==================== */
+
+/* Badge Pulse Effect */
+.skill-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-badge:hover {
+  background-color: #FFF3E0;
+  box-shadow: 0 0 12px 4px rgba(239, 144, 54, 0.15);
+}
+
+/* Smooth Link Colors */
+a {
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #EF9036;
+}
+
+/* ==================== Brand Colors ==================== */
+
+.text-brand {
+  color: #EF9036;
+}
+
+.bg-brand {
+  background-color: #EF9036;
+}
+
+.border-brand {
+  border-color: #EF9036;
+}
+
+.hover\:bg-brand:hover {
+  background-color: #EF9036;
+}
+
+.hover\:border-brand:hover {
+  border-color: #EF9036;
+}
+
+/* ==================== Image Optimization ==================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==================== SVG Decorations ==================== */
+
+svg {
+  display: block;
+}
+
+/* ==================== Card Styles ==================== */
+
+.card {
+  @apply bg-white border border-gray-200 rounded-lg;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  @apply border-brand-main shadow-xl;
+  transform: translateY(-8px);
+}
+
+/* ==================== Loading States ==================== */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ==================== Custom Scrollbar ==================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAFAF8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #EF9036;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9711A;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-color: #EF9036 #FAFAF8;
+  scrollbar-width: thin;
+}
+
+/* ==================== Specific Section Styles ==================== */
+
+/* Section Spacing */
+section {
+  scroll-margin-top: 100px;
+}
+
+/* About Section */
+#about .reveal:nth-child(n) {
+  transition-delay: 0s;
+}
+
+#about .reveal:nth-child(1) {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+#about .reveal:nth-child(2) {
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+#about .reveal:nth-child(3) {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+/* Skills Section */
+#skills .reveal {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+/* Projects Grid Stagger */
+#projects .reveal {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+#projects .reveal:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+#projects .reveal:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+#projects .reveal:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+/* Contact Section */
+#contact .reveal {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+#contact .reveal:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+#contact .reveal:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+/* ==================== Email Button ==================== */
+
+#email-btn {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  background: none;
+  font-family: inherit;
+  padding: 8px 0;
+}
+
+#email-btn:hover {
+  color: #C9711A;
+}
+
+#email-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==================== Toast Notification ==================== */
+
+#toast {
+  pointer-events: none;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+#toast.opacity-100 {
+  opacity: 1;
+}
+
+/* ==================== Dark Mode Support (Optional) ==================== */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-gray-900 text-white;
+  }
+
+  #navbar {
+    @apply bg-gray-800/50;
+  }
+
+  section {
+    @apply bg-gray-800;
+  }
+
+  .text-gray-600 {
+    @apply text-gray-400;
+  }
+
+  .text-gray-900 {
+    @apply text-white;
+  }
+
+  .bg-white {
+    @apply bg-gray-700;
+  }
+
+  .bg-gray-50 {
+    @apply bg-gray-800;
+  }
+
+  .border-gray-200 {
+    @apply border-gray-600;
+  }
+
+  .bg-gray-100 {
+    @apply bg-gray-700;
+  }
+
+  .text-gray-700 {
+    @apply text-gray-300;
+  }
+}
